@@ -5,7 +5,7 @@ import time
 from config_ping import *
 def send_json_data(url, id_list, status_list, retry_count=3):
 	measurements = [{"thing_id": thing_id, "is_up": thing_status} for thing_id, thing_status in zip(id_list, status_list)]
-	print(measurements)
+	#print(measurements)
 	json_data = {
 	"ping_measurements": measurements,
 	}
@@ -55,5 +55,5 @@ class ping_monitor(object):
 	def send_results(self):
 		send_json_data(self.settings["url"], self.id_list, self.result_array)
 			#self.process_init_array[index] = True
-a = ping_monitor(MAIN_CONFIG, 3)
+a = ping_monitor(MAIN_CONFIG, 30)
 a.run_loop()
