@@ -56,4 +56,5 @@ class ping_monitor(object):
 		send_json_data(self.settings["url"], self.id_list, self.result_array)
 			#self.process_init_array[index] = True
 a = ping_monitor(MAIN_CONFIG, 30)
-a.run_loop()
+while True:
+	a.run_loop()
